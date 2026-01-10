@@ -14,29 +14,32 @@ echo "Let the flashing begin (My clothes are still on!)..."
 
 
 # harcoded defaults
-IMAGE_URL="https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2025-12-04/2025-12-04-raspios-trixie-arm64-lite.img.xz"
-IMAGE_FILE="/tmp/pi_os.img"
-IMAGE_XZ="$IMAGE_FILE.xz"
+IMAGE_URL="https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2025-12-04/2025-12-04-raspios-trixie-arm64-lite.img.xz"IMAGE_FILE="/tmp/pi_os.img"
+IMAGE_XZ="/tmp/pi_os_img.xz"
 
 
 # promprt for drive if not provided
 if [[ $# -ge 1 ]]; then
     DEVICE="$1"
 else
+    echo "---DEVICE LIST---"
     lsblk
     read -rp "Enter the target device ('a' for abort):" DEVICE
 fi
 if [[ "$DEVICE" == "a" ]]; then
-    echo "Aborted!"
+    echo "Error: Aborted!"
+    exit 1
+elif [[ ! -b "/dev/$DEVICE" ]]; then
+    echo "Error: Device $DEVICE does not exist."
     exit 1
 fi
-
+DEVICE="/dev/$DEVICE"
 
 
 # confirm drive erasure
 read -rp "$DEVICE will be overwriten. Are you sure you want to continue? (y/n):" CONFIRM
 if [[ "$CONFIRM" != "y" ]]; then
-    echo "Aborted!"
+    echo "Error: Aborted!"
     exit 1
 fi
 
@@ -50,4 +53,7 @@ else
 fi
 
 
-echo "Flashing image..."
+# decompress and pipe to drivewrite
+echo "Decompressing and flashing image..."
+xzcat "$IMAGE_XZ" | sudo dd of="$DEVICE" bs=4M status=progress conv=fsync
+sync
