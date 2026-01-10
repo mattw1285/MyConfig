@@ -14,7 +14,7 @@ echo "Let the flashing begin (My clothes are still on!)..."
 
 
 # harcoded defaults
-IMAGE_URL="https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2025-12-04/2025-12-04-raspios-trixie-arm64-lite.img.xz"IMAGE_FILE="/tmp/pi_os.img"
+IMAGE_URL="https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2025-12-04/2025-12-04-raspios-trixie-arm64-lite.img.xz"
 IMAGE_XZ="/tmp/pi_os_img.xz"
 
 
@@ -57,3 +57,20 @@ fi
 echo "Decompressing and flashing image..."
 xzcat "$IMAGE_XZ" | sudo dd of="$DEVICE" bs=4M status=progress conv=fsync
 sync
+
+
+# ssh and hostname
+echo "Enabling network defaults..."
+BOOT_PART=$(lsblk -lnpo NAME,TYPE "$DEVICE" | grep part | head -n1 | awk '{print $1}')
+sudo mount "$BOOT_PART" /mnt
+
+sudo touch /mnt/ssh
+echo "SSH enabled"
+
+read -rp "Enter hostname for Pi (default: raspi5): " HOSTNAME_INPUT
+HOSTNAME=${HOSTNAME_INPUT:-raspi5}
+
+echo "$HOSTNAME" | sudo tee /mnt/hostname > /dev/null
+echo "Hostname set to $HOSTNAME"
+
+sudo umount /mnt
