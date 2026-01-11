@@ -1,14 +1,42 @@
 # MyConfig
 
-A repo to centralise my collection of configs and env setups. Many things that push this as a good path to take, the aim is for reduction in need for setup through automation.
+`MyConfig` is a centralised repo for my personal config files and env setup.
+The goal is to minimise repetitive manual steps, automate common tasks and maintain a reproducible baseline.
 
-## Benefits: 
-1. Standardising incremental setup inmprovement
-2. My tendency to break things
-3. Learning Bash Properly
+This repo doubles as:
+- A Safety Net
+- Living Record Of Env
+- Baseline Setup
 
-## Components:
-- Automated Pi OS Setup (CLI Based)
-- Default Package Installs (Debian / Pi OS)
-- *TBD* VIM Setup
-- *TBD* Desktop boot drive setup
+This repo is intentionally opinionated and personal.
+It’s not meant to be universal, but a my evolving toolkit for personal projects.
+
+---
+
+## Goals:
+
+- **Reproducibility** – quick and consistent env spin up
+- **Incremental Improvement** – standardise setup while allowing refinement
+- **Automation:** – reduce manual steps
+- **Learning** - infra tasks and bash practice
+
+---
+
+## What’s Included
+
+- **Automated Rasp Pi Setup**
+  - CLI Install Tool
+  - SSH Enabling
+  - Networking Config
+- **Default Package Installations**
+  - Debian / Pi OS (apt installs)
+- **Common Env Config**
+  - IDEs
+  - Git / Github
+
+---
+
+## Roadmap / Planned Additions
+
+- VIM configuration and plugins
+- Desktop boot drive
