@@ -22,7 +22,7 @@ It’s not meant to be universal, but rather my evolving toolkit for personal pr
 
 ---
 
-## What’s Included
+## What’s Included:
 
 - **Automated Rasp Pi Setup**
   - CLI Install Tool
@@ -36,7 +36,7 @@ It’s not meant to be universal, but rather my evolving toolkit for personal pr
 
 ---
 
-## Roadmap / Planned Additions
+## Roadmap:
 
 - VIM configuration and plugins
 - Desktop boot drive
