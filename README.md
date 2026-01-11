@@ -9,7 +9,7 @@ This repo doubles as:
 - Baseline Setup
 
 This repo is intentionally opinionated and personal.
-It’s not meant to be universal, but a my evolving toolkit for personal projects.
+It’s not meant to be universal, but rather my evolving toolkit for personal projects.
 
 ---
 
