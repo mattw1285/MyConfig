@@ -1,6 +1,6 @@
 # MyConfig
 
-My `MyConfig` repo is a centralised repo for my personal config files and env setup.
+The `MyConfig` repo is a centralised repo for my personal config files and env setup.
 The goal is to minimise repetitive manual steps, automate common tasks and maintain a reproducible baseline.
 
 This repo doubles as:
@@ -12,7 +12,7 @@ This repo is intentionally opinionated and personal.
 It’s not meant to be universal, but rather my evolving toolkit for personal projects.
 
 Despite being somwhat overkill, **I**nfrastructure **A**s **C**ode is where this is going... or at least my terrible version of.
-I don't quite have the need or hardware for terraform, so reflshing OS it is!
+I don't quite have the need or hardware for terraform, so reflashing os drives it is!
 
 ---
 
