@@ -1,0 +1,59 @@
+#cloud-config
+
+## Set the system's hostname.
+hostname: raspi-dev-01
+fqdn: raspi-dev-01.local
+manage_etc_hosts: true
+
+## Set up the keyboard layout.
+keyboard:
+  model: pc105
+  layout: gb
+  variant:
+  options: ctrl:nocaps
+
+# Controls password authentication with the SSH daemon.
+ssh_pwauth: true
+
+## On first boot, use ssh-import-id to give the specific users SSH access to
+## the default user
+#ssh_import_id:
+#- gh:mattw1285
+
+## Add users and groups to the system, and import keys with the ssh-import-id
+## utility
+#groups:
+#- robot: [robot]
+#- robotics: [robot]
+#- pi
+
+
+users:
+- default
+#- name: robot
+#  gecos: Mr. Robot
+#  primary_group: robot
+#  groups: users
+#  ssh_import_id: foobar
+#  lock_passwd: false
+#  passwd: $5$hkui88$nvZgIle31cNpryjRfO9uArF7DYiBcWEnjqq7L1AQNN3
+
+## Update apt database and upgrade packages on first boot
+package_update: true
+package_upgrade: true
+
+## Install additional packages on first boot
+packages:
+- tree
+- git
+- gh
+- vim
+- sqlite3
+- spatialite-bin 
+- libsqlite3-mod-spatialite
+
+
+## Run arbitrary commands at rc.local like time
+#runcmd:
+#- [ ls, -l, / ]
+#- [ sh, -xc, "echo $(date) ': hello world!'" ]
