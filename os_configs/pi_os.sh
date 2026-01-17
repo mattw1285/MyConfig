@@ -58,17 +58,12 @@ echo "Decompressing and flashing image..."
 xzcat "$IMAGE_XZ" | sudo dd of="$DEVICE" bs=4M status=progress conv=fsync
 sync
 
-
 # ssh and hostname
 echo "Enabling network defaults..."
 BOOT_PART=$(lsblk -lnpo NAME,TYPE "$DEVICE" | grep part | head -n1 | awk '{print $1}')
 sudo mount "$BOOT_PART" /mnt
 
-sudo touch /mnt/ssh
-echo "SSH enabled"
 
-read -rp "Enter hostname for Pi (default: raspi5): " HOSTNAME_INPUT
-HOSTNAME=${HOSTNAME_INPUT:-raspi5}
 
 echo "$HOSTNAME" | sudo tee /mnt/hostname > /dev/null
 echo "Hostname set to $HOSTNAME"
