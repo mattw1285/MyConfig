@@ -15,28 +15,16 @@ keyboard:
 # Controls password authentication with the SSH daemon.
 ssh_pwauth: true
 
-## On first boot, use ssh-import-id to give the specific users SSH access to
-## the default user
-#ssh_import_id:
-#- gh:mattw1285
-
-## Add users and groups to the system, and import keys with the ssh-import-id
-## utility
-#groups:
-#- robot: [robot]
-#- robotics: [robot]
-#- pi
-
-
+# add users for login
 users:
-- default
-#- name: robot
-#  gecos: Mr. Robot
-#  primary_group: robot
-#  groups: users
-#  ssh_import_id: foobar
-#  lock_passwd: false
-#  passwd: $5$hkui88$nvZgIle31cNpryjRfO9uArF7DYiBcWEnjqq7L1AQNN3
+#- default
+- name: mattw
+  gecos: "lead dev bot"
+  groups: [sudo]
+  passwd: $6$04VIoEKwbxpf7P1X$f3ZDOZN.w9M6uGtgBjl41skKhBcfYVKz/PsSFHO78GKBMjYUlMOHNW7lT2VXxRDyqHLuZDvSP.dRWyfW3AWVN/
+  lock_passwd: false
+#  ssh_import_id: 
+#    - gh:mattw
 
 ## Update apt database and upgrade packages on first boot
 package_update: true
@@ -49,9 +37,24 @@ packages:
 - gh
 - vim
 - sqlite3
-- spatialite-bin 
-- libsqlite3-mod-spatialite
+- python3
 
+# writing file to set global aliases
+write_files:
+  - path: /etc/profile.d/00-aliases.sh
+    owner: root:root
+    permissions: '0644'
+    content: |
+      # System-wide aliases for convenience
+      alias ..='cd ..'
+      alias python='python3'
+
+      # lazy ass git commands
+      alias ga='git add -A'
+      alias gc='git commit -m'
+      alias gs='git status'
+      alias gph='git push'
+      alias gpl='git pull'
 
 ## Run arbitrary commands at rc.local like time
 #runcmd:
