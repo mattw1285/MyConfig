@@ -1,5 +1,13 @@
 #cloud-config
 
+## Force ethernet connection during setup
+network:
+  version: 2
+  ethernets:
+    eth0:
+      dhcp4: true
+      optional: false
+
 ## Set the system's hostname.
 hostname: raspi-dev-01
 fqdn: raspi-dev-01.local

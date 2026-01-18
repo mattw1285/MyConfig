@@ -25,13 +25,13 @@ if config not in [x.stem for x in setups]:
     print('Not a valid settup!')
     sys.exit(1)
 print('Applying base config...')
-user_data = Path(path / 'user-data' / config+'.yaml')
+user_data = Path(path / 'user-data' / (config+'.yaml'))
 shutil.copy2(user_data, mnt_path/'user-data')
 
 
 # move secondary config files if they exist
-network_config = path / 'network-config' / config+'.yaml'
-meta_data = path / 'meta-data' / config+'.yaml'
+network_config = path / 'network-config' / (config+'.yaml')
+meta_data = path / 'meta-data' / (config+'.yaml')
 
 print('Checking for other config files...')
 if network_config.exists():
