@@ -10,8 +10,13 @@
 
 
 set -euo pipefail
-echo "Let the flashing begin (My clothes are still on!)..."
+echo "Let the flashing begin (Clothes still on!)..."
 
+# Check if running as root
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run with sudo."
+   exit 1
+fi
 
 # harcoded defaults
 IMAGE_URL="https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2025-12-04/2025-12-04-raspios-trixie-arm64-lite.img.xz"
@@ -58,14 +63,16 @@ echo "Decompressing and flashing image..."
 xzcat "$IMAGE_XZ" | sudo dd of="$DEVICE" bs=4M status=progress conv=fsync
 sync
 
-# ssh and hostname
-echo "Enabling network defaults..."
+# setting up os config
+echo "Cofiguring setup..."
 BOOT_PART=$(lsblk -lnpo NAME,TYPE "$DEVICE" | grep part | head -n1 | awk '{print $1}')
-sudo mount "$BOOT_PART" /mnt
+MOUNT_LOC="/mnt"
 
+mount "$BOOT_PART" $MOUNT_LOC
+python3 pi_config.py $MOUNT_LOC
+umount $MOUNT_LOC
 
+echo "Syncing process..."
+sync
 
-echo "$HOSTNAME" | sudo tee /mnt/hostname > /dev/null
-echo "Hostname set to $HOSTNAME"
-
-sudo umount /mnt
+echo "Drive setup complete!"
