@@ -11,8 +11,14 @@ This repo doubles as:
 This repo is intentionally opinionated and personal.
 It’s not meant to be universal, but rather my evolving toolkit for personal projects.
 
-Despite being somwhat overkill, **I**nfrastructure **A**s **C**ode is where this is going... or at least my terrible version of.
+Despite being somwhat overkill, _**I**nfrastructure **A**s **C**ode_ is where this is going... or at least my terrible version of.
 I don't quite have the need or hardware for terraform, so reflashing os drives it is!
+
+---
+
+```
+"When one gets sick, you shoot it and get another one."
+```
 
 ---
 
@@ -25,21 +31,47 @@ I don't quite have the need or hardware for terraform, so reflashing os drives i
 
 ---
 
-## What’s Included:
-
-- **Automated Rasp Pi Setup**
-  - CLI Install Tool
-  - SSH Enabling
-  - Networking Config
-- **Default Package Installations**
-  - Debian / Pi OS (apt installs)
-- **Common Env Config**
-  - IDEs
-  - Git / Github
+```
+"Your infrastructure should be a graveyard." 
+```
 
 ---
 
 ## Roadmap:
 
-- VIM configuration and plugins
-- Desktop boot drive
+| **TOPIC** | **PROGRESS** | **PERCENT** |
+| :--- | :--- | :--- |
+| Dev Setup | ![75%](https://geps.dev/progress/75) | 75%
+| VIM | ![0%](https://geps.dev/progress/0) | 0%
+| Utility Servers | ![0%](https://geps.dev/progress/1) | 0%
+| Dekstop Setup | ![0%](https://geps.dev/progress/20) | 0%
+
+---
+
+```
+"Build it, then burn it."
+```
+
+---
+
+## Currently Included:
+
+- `os_configs`
+  - CLI Install Tool
+  - SSH Auto Enable
+  - DEV Config
+
+```
+MyConfig
+├── os_configs
+│   ├── meta-data
+│   │   └── base-file
+│   ├── network-config
+│   │   └── base-file
+│   ├── pi_config.py
+│   ├── pi_os.sh
+│   └── user-data
+│       ├── base-file
+│       └── pi_dev.yaml
+└── README.md
+```
