@@ -43,8 +43,8 @@ I don't quite have the need or hardware for terraform, so reflashing os drives i
 | :--- | :--- | :--- |
 | Dev Setup | ![75%](https://geps.dev/progress/75) | 75%
 | VIM | ![0%](https://geps.dev/progress/0) | 0%
-| Utility Servers | ![0%](https://geps.dev/progress/1) | 0%
-| Dekstop Setup | ![0%](https://geps.dev/progress/20) | 0%
+| Utility Servers | ![0%](https://geps.dev/progress/0) | 0%
+| Dekstop Setup | ![0%](https://geps.dev/progress/0) | 0%
 
 ---
 
