@@ -8,6 +8,10 @@ network:
       dhcp4: true
       optional: false
 
+runcmd:
+  - [ timedatectl, set-ntp, true ]
+  - [ sleep, 5 ] # Give it a second to grab the time
+
 ## Set the system's hostname.
 hostname: raspi-dev-01
 fqdn: raspi-dev-01.local
