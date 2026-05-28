@@ -1,0 +1,18 @@
+" --- 1. General Setttings ---
+set nocompatible
+set hidden
+set mouse=a
+syntax on
+
+set background=light
+colorscheme delek
+
+set number
+highlight LineNr guifg=#808080 ctermfg=244
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
+set colorcolumn=80
+highlight ColorColumn ctermbg=244 guibg=#808080
