@@ -75,3 +75,21 @@ MyConfig
 │       └── pi_dev.yaml
 └── README.md
 ```
+.
+├── btw_i_use_vim
+│   ├── my_tmux.sh
+│   └── stuck_in_insert_mode
+├── os_configs
+│   ├── cloud-init
+│   │   ├── meta-data
+│   │   │   └── base-file
+│   │   ├── network-config
+│   │   │   └── base-file
+│   │   └── user-data
+│   │       ├── base-file
+│   │       └── pi_dev.yaml
+│   ├── pi_config.py
+│   └── pi_os.sh
+└── README.md
+
+7 directories, 9 files
