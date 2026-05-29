@@ -17,7 +17,7 @@ if [ $? != 0 ]; then
 
     # 4. Resize panes
     # Resize right pane (Vim) to take up 2/3 of the width
-    tmux resize-pane -t $SESSION:0.1 -x 66%
+    tmux resize-pane -t $SESSION:0.1 -x 75%
     
     # Resize bottom pane (Python) to take up 1/4 of the height (leaving 3/4 for top)
     tmux resize-pane -t $SESSION:0.2 -y 25%
