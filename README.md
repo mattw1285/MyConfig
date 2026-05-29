@@ -1,18 +1,20 @@
 # MyConfig
 
-The `MyConfig` repo is a centralised repo for my personal config files and env setup.
-The goal is to minimise repetitive manual steps, automate common tasks and maintain a reproducible baseline.
+The `MyConfig` repo is a centralised repo for my personal config files and env 
+setup. The goal is to minimise repetitive manual steps, automate common tasks 
+and maintain a reproducible baseline.
 
 This repo doubles as:
 - A Safety Net
 - Living Record Of Env
 - Baseline Setup
 
-This repo is intentionally opinionated and personal.
-It’s not meant to be universal, but rather my evolving toolkit for personal projects.
+This repo is intentionally opinionated and personal. It’s not meant to be 
+universal, but rather my evolving toolkit for personal projects.
 
-Despite being somwhat overkill, _**I**nfrastructure **A**s **C**ode_ is where this is going... or at least my terrible version of.
-I don't quite have the need or hardware for terraform, so reflashing os drives it is!
+Despite being somwhat overkill, _**I**nfrastructure **A**s **C**ode_ is where 
+this is going... or at least my terrible version of. I don't quite have the 
+need or hardware for terraform, so reflashing os drives it is!
 
 ---
 
@@ -32,7 +34,8 @@ I don't quite have the need or hardware for terraform, so reflashing os drives i
 ---
 
 ```
-"Your infrastructure should be a graveyard." 
+"Your infrastructure should be a graveyard... Much like your list of nearly 
+complete project" 
 ```
 
 ---
@@ -63,19 +66,6 @@ I don't quite have the need or hardware for terraform, so reflashing os drives i
 
 ```
 MyConfig
-├── os_configs
-│   ├── meta-data
-│   │   └── base-file
-│   ├── network-config
-│   │   └── base-file
-│   ├── pi_config.py
-│   ├── pi_os.sh
-│   └── user-data
-│       ├── base-file
-│       └── pi_dev.yaml
-└── README.md
-```
-.
 ├── btw_i_use_vim
 │   ├── my_tmux.sh
 │   └── stuck_in_insert_mode
@@ -91,5 +81,4 @@ MyConfig
 │   ├── pi_config.py
 │   └── pi_os.sh
 └── README.md
-
-7 directories, 9 files
+```
