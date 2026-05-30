@@ -34,7 +34,7 @@ need or hardware for terraform, so reflashing os drives it is!
 ---
 
 ```
-"Your infrastructure should be a graveyard... Much like your list of nearly 
+"Your infrastructure should be a graveyard... Just like your list of nearly 
 complete project" 
 ```
 
@@ -44,10 +44,11 @@ complete project"
 
 | **TOPIC** | **PROGRESS** | **PERCENT** |
 | :--- | :--- | :--- |
-| Dev Setup | ![75%](https://geps.dev/progress/75) | 75%
-| VIM | ![0%](https://geps.dev/progress/0) | 0%
-| Utility Servers | ![0%](https://geps.dev/progress/0) | 0%
-| Dekstop Setup | ![0%](https://geps.dev/progress/0) | 0%
+| Dev OS | ![75%](https://geps.dev/progress/75) | 75% |
+| Dev Setup | ![10%](https://geps.dev/progress/10) | 10% |
+| VIM | ![15%](https://geps.dev/progress/15) | 15% |
+| Utility Servers | ![0%](https://geps.dev/progress/0) | 0% |
+| Dekstop Setup | ![0%](https://geps.dev/progress/0) | 0% |
 
 ---
 
@@ -59,14 +60,18 @@ complete project"
 
 ## Currently Included:
 
-- `os_configs`
+- `os_configs` - DEV Config
   - CLI Install Tool
   - SSH Auto Enable
-  - DEV Config
+- `btw_i_use_vim` - development niceness
+  - vim config
+  - tmux config
+  - aliases
 
 ```
 MyConfig
 ├── btw_i_use_vim
+│   ├── bash_aliases
 │   ├── my_tmux.sh
 │   └── stuck_in_insert_mode
 ├── os_configs
@@ -81,4 +86,6 @@ MyConfig
 │   ├── pi_config.py
 │   └── pi_os.sh
 └── README.md
+
+7 directories, 10 files
 ```
