@@ -1,4 +1,4 @@
-" --- 1. General Setttings ---
+" --- 1. General Settings ---
 set nocompatible
 set hidden
 set mouse=a
@@ -6,6 +6,7 @@ syntax on
 
 set background=light
 colorscheme delek
+set showtabline=2
 
 set number
 highlight LineNr guifg=#808080 ctermfg=244
@@ -17,14 +18,27 @@ set shiftwidth=4
 set colorcolumn=80
 highlight ColorColumn guibg=#808080 ctermbg=244 
 
+" --- 2. Plugins ---
+call plug#begin('~/.vim/plugged')
 
-let g:netrw_winsize = 20
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline' 
+Plug 'vim-airline/vim-airline-themes' 
 
-let g:netrw_altv = 1
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
+call plug#end()
 
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * if argc() == 0 | Vexplore | endif
-augroup END
+" --- 3. Opening Settings ---
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#buffer_nr_show=1
+let g:airline_theme='deus'
+let g:airline#extensions#tabline#formatter='default'
+let g:airline_powerline_fonts=1
+let NERDTreeShowHidden=1
+"autocmd VimEnter * NERDTree
+
+" --- 4. Key Mappings ---
+let mapleader = " "
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>l :bn<CR>
+nnoremap <leader>p :bp<CR>
+nnoremap <leader>o :bd<CR>
