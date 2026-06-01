@@ -2,6 +2,9 @@
 set nocompatible
 set hidden
 set mouse=a
+filetype plugin indent on
+set autoindent
+set smartindent
 syntax on
 
 set background=light
@@ -35,7 +38,7 @@ let g:airline_theme='deus'
 let g:airline#extensions#tabline#formatter='default'
 let g:airline_powerline_fonts=1
 let NERDTreeShowHidden=1
-"autocmd VimEnter * NERDTree
+let NERDTreeQuitOnOpen=1
 
 " --- 4. Key Mappings ---
 let mapleader = " "
