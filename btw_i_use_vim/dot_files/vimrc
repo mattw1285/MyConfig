@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline' 
 Plug 'vim-airline/vim-airline-themes' 
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -41,4 +42,6 @@ let mapleader = " "
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>l :bn<CR>
 nnoremap <leader>p :bp<CR>
-nnoremap <leader>o :bd<CR>
+nnoremap <leader>o :bd!<CR>
+nmap <leader>/ gcc
+xmap <leader>/ gc
