@@ -50,23 +50,24 @@ packages:
 - vim
 - sqlite3
 - python3
+- tmux
 
 # writing file to set global aliases
-write_files:
-  - path: /etc/profile.d/00-aliases.sh
-    owner: root:root
-    permissions: '0644'
-    content: |
-      # System-wide aliases for convenience
-      alias ..='cd ..'
-      alias python='python3'
+# write_files:
+#   - path: /etc/profile.d/00-aliases.sh
+#     owner: root:root
+#     permissions: '0644'
+#     content: |
+#       # System-wide aliases for convenience
+#       alias ..='cd ..'
+#       alias python='python3'
 
-      # lazy ass git commands
-      alias ga='git add -A'
-      alias gc='git commit -m'
-      alias gs='git status'
-      alias gph='git push'
-      alias gpl='git pull'
+#       # lazy ass git commands
+#       alias ga='git add -A'
+#       alias gc='git commit -m'
+#       alias gs='git status'
+#       alias gph='git push'
+#       alias gpl='git pull'
 
 ## Run arbitrary commands at rc.local like time
 #runcmd:
