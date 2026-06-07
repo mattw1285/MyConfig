@@ -2,7 +2,7 @@
 ## --- Navigation --- ##
 alias ..='cd ..'
 alias ...='cd ../..'
-alias home='cd ~'
+alias home='clear && cd ~'
 
 ## --- Git --- ##
 alias ga='git add .'
