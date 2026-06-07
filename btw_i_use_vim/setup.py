@@ -2,18 +2,31 @@
 import shutil
 from pathlib import Path
 
-DOTFILE_DIR = Path(Path(__file__).parent) / 'dot_files'
+
+DOTFILE_DIR = Path(__file__).parent / 'dot_files'
 HOME_DIR = Path.home()
 
+
 def main():
-    setup = [x for x in DOTFILE_DIR.iterdir()]
-    for each in setup:
-        target_path = HOME_DIR / ('.' + each.name)
-        source_path = each
-        if target_path.exists():
-            print(f"Deleting {target_path}")
+    print('Starting dev environment setup...')
+    for source_path in DOTFILE_DIR.iterdir():
+        target_path = HOME_DIR / ('.' + source_path.name)
+        if target_path.is_symlink():
+            print(f"Removing the symlink for '.{source_path.name}' config...")
+            target_path.unlink()
+        elif target_path.is_dir():
+            print(f"Deleting the existing '.{source_path.name}' dir...")
+            shutil.rmtree(target_path)
+        elif target_path.exists():
+            print(f"Deleting the existing '.{source_path.name}' file...")
+            target_path.unlink()
         else:
-            print(each.name,'does not')
+            print(f"'.{source_path.name}' is not an existing config!")
+        print(f"Setting up '.{source_path.name}' symlink...")
+        target_path.symlink_to(source_path)
+    print('All done! :D')
+    return
+
 
 if __name__ == '__main__':
     main()
