@@ -7,8 +7,8 @@ DOTFILE_DIR = Path(__file__).parent / 'dot_files'
 HOME_DIR = Path.home()
 
 
-def main():
-    print('Starting dev environment setup...')
+def staging_dotfiles():
+    print('Staging dot files...')
     for source_path in DOTFILE_DIR.iterdir():
         target_path = HOME_DIR / ('.' + source_path.name)
         if target_path.is_symlink():
@@ -24,7 +24,18 @@ def main():
             print(f"'.{source_path.name}' is not an existing config!")
         print(f"Setting up '.{source_path.name}' symlink...")
         target_path.symlink_to(source_path)
-    print('All done! :D')
+    print('Dot files staged successfully.')
+    return
+
+
+TASKS = [staging_dotfiles]
+
+
+def main():
+    print('Your dev environment will now be setup!')
+    for x in _TASKS:
+        x()
+    print('Everything is ready to go! :D')
     return
 
 
