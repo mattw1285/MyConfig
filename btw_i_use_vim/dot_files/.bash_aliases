@@ -11,3 +11,4 @@ alias gs='git status'
 
 ## --- System & Utility --- ##
 alias update='sudo apt update -y && sudo apt full-upgrade -y'
+alias cat='batcat'

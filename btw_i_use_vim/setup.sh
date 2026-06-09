@@ -10,4 +10,4 @@ echo "We will now beign setting up your user..."
 sudo apt install python3 -y
 python3 "$SCRIPT_DIR/helper_scripts/dot_files.py"
 
-
+echo "alias dev='source $SCRIPT_DIR/dev_py.sh'" >> ~/.bash_aliases
