@@ -40,13 +40,31 @@ complete project"
 
 ---
 
+## How Two:
+
+run `cd .../MyConfig/btw_i_use_vim && source setup.sh`...
+
+Then maybe pray to the gods that I've looked at this recently, stopped 
+procrastinating and learnt how to do it. But `setup.sh` should work fine.
+
+I'll tell you about the os setup when i finish it lol! :D
+
+---
+
+```
+"It’s not a 'production outage, it’s a 'spontaneous load-testing exercise' 
+for our disaster recovery plan."
+```
+
+---
+
 ## Roadmap:
 
 | **TOPIC** | **PROGRESS** | **PERCENT** |
 | :--- | :--- | :--- |
-| Dev OS | ![75%](https://geps.dev/progress/75) | 75% |
-| Dev Setup | ![10%](https://geps.dev/progress/10) | 10% |
-| VIM | ![15%](https://geps.dev/progress/15) | 15% |
+| Dev OS | ![60%](https://geps.dev/progress/60) | 60% |
+| Dev Setup | ![80%](https://geps.dev/progress/80) | 80% |
+| VIM | ![50%](https://geps.dev/progress/50) | 50% |
 | Utility Servers | ![0%](https://geps.dev/progress/0) | 0% |
 | Dekstop Setup | ![0%](https://geps.dev/progress/0) | 0% |
 
@@ -65,15 +83,19 @@ complete project"
   - SSH Auto Enable
 - `btw_i_use_vim` - development niceness
   - vim config
-  - tmux config
-  - aliases
+  - tmux config... but not setup
+  - bash aliases
 
 ```
 MyConfig
+├── ai_cli
+│   └── ai.py
 ├── btw_i_use_vim
-│   ├── bash_aliases
-│   ├── my_tmux.sh
-│   └── stuck_in_insert_mode
+│   ├── dot_files
+│   ├── helper_scripts
+│   │   ├── dev_py.sh
+│   │   └── dot_files.py
+│   └── setup.sh
 ├── os_configs
 │   ├── cloud-init
 │   │   ├── meta-data
@@ -87,5 +109,5 @@ MyConfig
 │   └── pi_os.sh
 └── README.md
 
-7 directories, 10 files
+10 directories, 11 files
 ```
