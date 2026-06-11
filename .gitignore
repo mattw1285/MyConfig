@@ -1,0 +1,23 @@
+# python
+__pycache__/
+.env
+.venv/
+.venv
+venv/
+venv
+.pytest_cache/
+
+# Spyder
+.spyderproject
+.spyproject
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Vim
+*.swp
+*.swo
+*.swn
+.*.swp
+.*.swo
+*~
