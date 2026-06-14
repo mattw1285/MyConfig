@@ -51,6 +51,8 @@ packages:
 - sqlite3
 - python3
 - tmux
+- batcat
+
 
 # writing file to set global aliases
 # write_files:
