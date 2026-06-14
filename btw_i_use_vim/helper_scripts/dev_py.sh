@@ -2,9 +2,15 @@
 
 SESSION="dev"
 
-tmux has-session -t $SESSION 2>/dev/null
+if tmux has-session -t $SESSION 2>/dev/null; then
+    echo "Tmux session '$SESSION' already exists"
+else
+    tmux new-session -s $SESSION -d 
+fi
 
-if [ $? != 0 ]; then
+
+
+# if [ $? != 0 ]; then
     # tmux new-session -d -s $SESSION -n "dev"
 
     # tmux split-window -h -t $SESSION:0
@@ -20,8 +26,8 @@ if [ $? != 0 ]; then
     # tmux send-keys -t $SESSION:0.2 "python3" C-m
 
     # tmux select-pane -t $SESSION:0.1
-fi
+# fi
 
-tmux attach-session -t $SESSION
+# tmux attach-session -t $SESSION
 
 

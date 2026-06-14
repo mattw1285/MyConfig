@@ -18,7 +18,7 @@ vim +PlugClean! +PlugInstall +PlugUpdate +qall
 echo "vim setup!"
 
 echo "Adding one final alias..."
-echo "alias dev='source $SCRIPT_DIR/dev_py.sh'" >> ~/.bash_aliases
+echo "alias dev='source $SCRIPT_DIR/helper_scripts/dev_py.sh'" >> ~/.bash_aliases
 
 echo "Setup done, we will now reload the shell!"
 source ~/.bashrc
