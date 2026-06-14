@@ -19,7 +19,11 @@ echo "vim setup!"
 
 echo "Adding one final utility..."
 chmod +x "$SCRIPT_DIR/helper_scripts/dev.sh"
-echo "alias dev='$SCRIPT_DIR/helper_scripts/dev.sh'" >> ~/.bash_aliases
+cat << EOF >> ~/.bash_aliases
+
+## --- 'setup.sh' --- ##
+alias dev="$SCRIPT_DIR/helper_scripts/dev.sh"
+EOF
 
 echo "Setup done, we will now reload the shell!"
 source ~/.bashrc
