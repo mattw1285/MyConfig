@@ -5,29 +5,10 @@ SESSION="dev"
 if tmux has-session -t $SESSION 2>/dev/null; then
     echo "Tmux session '$SESSION' already exists"
 else
-    tmux new-session -s $SESSION -d 
+    tmux new-session -s $SESSION -d "vim"
+    tmux split-window -v -t $SESSION:0
+    tmux resize-pane -t $SESSION:0.0 -y 75%
+    tmux send-keys -t $SESSION:0.0 "vim" C-m
+    tmux select-pane -t $SESSION:0.0
+    tmux attach -t $SESSION
 fi
-
-
-
-# if [ $? != 0 ]; then
-    # tmux new-session -d -s $SESSION -n "dev"
-
-    # tmux split-window -h -t $SESSION:0
-
-    # tmux split-window -v -t $SESSION:0.1
-
-    # tmux resize-pane -t $SESSION:0.1 -x 75%
-    
-    # tmux resize-pane -t $SESSION:0.2 -y 25%
-
-    # tmux send-keys -t $SESSION:0.0 "cd ~/projects && ls" C-m
-    # tmux send-keys -t $SESSION:0.1 "vim" C-m
-    # tmux send-keys -t $SESSION:0.2 "python3" C-m
-
-    # tmux select-pane -t $SESSION:0.1
-# fi
-
-# tmux attach-session -t $SESSION
-
-
