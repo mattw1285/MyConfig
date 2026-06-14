@@ -26,4 +26,4 @@ alias dev="$SCRIPT_DIR/helper_scripts/dev.sh"
 EOF
 
 echo "Setup done, we will now reload the shell!"
-source ~/.bashrc
+exec bash
