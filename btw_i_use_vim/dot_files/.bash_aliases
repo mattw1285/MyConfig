@@ -8,6 +8,7 @@ alias home='clear && cd ~'
 alias ga='git add .'
 alias gc='git commit -m' 
 alias gs='git status'
+alias gl="git log -n 8 --pretty=format:'%h %ad %s %C(cyan)[%an]' --date=short"
 
 ## --- System & Utility --- ##
 alias update='sudo apt update -y && sudo apt full-upgrade -y'

@@ -8,9 +8,8 @@ else
     tmux new-session -s $SESSION -d
     tmux split-window -v -t $SESSION:0
     tmux resize-pane -t $SESSION:0.0 -y 75%
-    sleep 0.1
+    sleep 0.2
     tmux send-keys -t $SESSION:0.0 "vim" C-m
-    sleep 0.1
     tmux select-pane -t $SESSION:0.1
     tmux attach -t $SESSION
 fi
