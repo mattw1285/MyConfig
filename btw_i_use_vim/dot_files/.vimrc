@@ -1,4 +1,6 @@
 " --- 1. General Settings ---
+set ttyfast
+set lazyredraw
 set nocompatible
 set hidden
 set mouse=a
