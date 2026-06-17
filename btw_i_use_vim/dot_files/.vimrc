@@ -30,6 +30,8 @@ Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline' 
 Plug 'vim-airline/vim-airline-themes' 
 Plug 'tpope/vim-commentary'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -50,3 +52,4 @@ nnoremap <leader>p :bp<CR>
 nnoremap <leader>o :bd!<CR>
 nmap <leader>/ gcc
 xmap <leader>/ gc
+nnoremap <leader>f :Files<CR>
