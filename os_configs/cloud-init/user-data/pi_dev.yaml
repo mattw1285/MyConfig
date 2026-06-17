@@ -52,6 +52,7 @@ packages:
 - python3
 - tmux
 - batcat
+- fzf
 
 
 # writing file to set global aliases
