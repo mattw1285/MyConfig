@@ -23,7 +23,7 @@ IMAGE_URL="https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_l
 IMAGE_XZ="/tmp/pi_os_img.xz"
 
 
-# promprt for drive if not provided
+# prompt for drive if not provided
 if [[ $# -ge 1 ]]; then
     DEVICE="$1"
 else
