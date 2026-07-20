@@ -1,78 +1,32 @@
 #cloud-config
 
-## Force ethernet connection during setup
-network:
-  version: 2
-  ethernets:
-    eth0:
-      dhcp4: true
-      optional: false
+hostname: dev001
 
-runcmd:
-  - [ timedatectl, set-ntp, true ]
-  - [ sleep, 5 ] # Give it a second to grab the time
+ssh_pwauth: False
 
-## Set the system's hostname.
-hostname: raspi-dev-01
-fqdn: raspi-dev-01.local
-manage_etc_hosts: true
-
-## Set up the keyboard layout.
-keyboard:
-  model: pc105
-  layout: gb
-  variant:
-  options: ctrl:nocaps
-
-# Controls password authentication with the SSH daemon.
-ssh_pwauth: true
-
-# add users for login
-users:
-#- default
-- name: mattw
-  gecos: "lead dev bot"
-  groups: [sudo]
-  passwd: $6$04VIoEKwbxpf7P1X$f3ZDOZN.w9M6uGtgBjl41skKhBcfYVKz/PsSFHO78GKBMjYUlMOHNW7lT2VXxRDyqHLuZDvSP.dRWyfW3AWVN/
-  lock_passwd: false
-#  ssh_import_id: 
-#    - gh:mattw
-
-## Update apt database and upgrade packages on first boot
 package_update: true
 package_upgrade: true
-
-## Install additional packages on first boot
 packages:
-- tree
-- git
-- gh
-- vim
-- sqlite3
-- python3
-- tmux
-- batcat
-- fzf
+  - ssh-import-id
+  - tree
+  - git
+  - gh
+  - vim
+  - sqlite3
+  - python3
+  - tmux
+  - batcat
+  - fzf
+
+users:
+  - name: mattw1285
+    gecos: "Matt"
+    groups: 
+      - sudo
+    lock_passwd: true
+    ssh_import_id: 
+      - gh:mattw1285
 
 
-# writing file to set global aliases
-# write_files:
-#   - path: /etc/profile.d/00-aliases.sh
-#     owner: root:root
-#     permissions: '0644'
-#     content: |
-#       # System-wide aliases for convenience
-#       alias ..='cd ..'
-#       alias python='python3'
-
-#       # lazy ass git commands
-#       alias ga='git add -A'
-#       alias gc='git commit -m'
-#       alias gs='git status'
-#       alias gph='git push'
-#       alias gpl='git pull'
-
-## Run arbitrary commands at rc.local like time
-#runcmd:
-#- [ ls, -l, / ]
-#- [ sh, -xc, "echo $(date) ': hello world!'" ]
+runcmd:
+  - systemctl enable ssh
