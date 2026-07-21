@@ -12,6 +12,12 @@
 set -euo pipefail
 echo "Let the flashing begin (Clothes still on!)..."
 
+SCRIPT_PATH="$( readlink -f "$BASH_SOURCE[0]" )"
+SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
+SCRIPT_DIR="$( cd "$SCRIPT_DIR" && pwd)"
+
+source ./ 
+
 # Check if running as root
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run with sudo."
