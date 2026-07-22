@@ -1,0 +1,10 @@
+[user]
+	name = Matt Wheeler
+    email = mattw1285@gmail.com
+
+[core]
+    pager = delta
+    editor = vim --wait
+
+[interactive]
+    diffFilter = delta --color-only
