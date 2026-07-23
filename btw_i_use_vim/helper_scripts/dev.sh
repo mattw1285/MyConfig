@@ -8,7 +8,7 @@ if tmux has-session -t $SESSION 2>/dev/null; then
 else
     tmux new-session -s $SESSION -d -c "$START_DIR" "bash"
     tmux split-window -h -t $SESSION:0 -c "$START_DIR" "bash"
-    tmux resize-pane -t $SESSION:0.0 -x 75%
+    tmux resize-pane -t $SESSION:0.0 -x 50%
     tmux select-pane -t $SESSION:0.0
     sleep 0.2
     CMD=" \
