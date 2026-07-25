@@ -16,18 +16,13 @@ SCRIPT_PATH="$( readlink -f "$BASH_SOURCE[0]" )"
 SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
 SCRIPT_DIR="$( cd "$SCRIPT_DIR" && pwd)"
 
-source ./ 
+source $SCRIPT_DIR/helpers/os.conf 
 
 # Check if running as root
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run with sudo."
    exit 1
 fi
-
-# harcoded defaults
-IMAGE_URL="https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2025-12-04/2025-12-04-raspios-trixie-arm64-lite.img.xz"
-IMAGE_XZ="/tmp/pi_os_img.xz"
-
 
 # prompt for drive if not provided
 if [[ $# -ge 1 ]]; then
