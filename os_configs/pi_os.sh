@@ -10,20 +10,25 @@
 
 
 set -euo pipefail
-echo "Let the flashing begin (Clothes still on!)..."
+
+
+# Check if running as root
+echo "checking privilege levels..."
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run with sudo."
+   exit 1
+fi
+
+echo << EOF
+I am suitably priviliged!
+Let the flashing begin (Clothes still on!)..."
+EOF
 
 SCRIPT_PATH="$( readlink -f "$BASH_SOURCE[0]" )"
 SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
 SCRIPT_DIR="$( cd "$SCRIPT_DIR" && pwd)"
 
 source $SCRIPT_DIR/helpers/os.conf 
-
-# Check if running as root
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run with sudo."
-   exit 1
-fi
-
 # prompt for drive if not provided
 if [[ $# -ge 1 ]]; then
     DEVICE="$1"
@@ -32,6 +37,7 @@ else
     lsblk
     read -rp "Enter the target device ('a' for abort):" DEVICE
 fi
+
 if [[ "$DEVICE" == "a" ]]; then
     echo "Error: Aborted!"
     exit 1
