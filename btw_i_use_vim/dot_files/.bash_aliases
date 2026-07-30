@@ -18,6 +18,7 @@ alias vimf='vim $(fzf)'
 
 alias tk='tmux kill-session'
 alias ta='tmux attach'
+alias td='tmux detach'
 
 ## --- System & Utility --- ##
 alias update='sudo apt update -y && sudo apt full-upgrade -y'
