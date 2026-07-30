@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# --------------------
+# A script to flash my preffered OS version to a drive.
+# - Reproducible Setup
+# - Headless Server Setup
+# - SSH Enabled From The Go
+# - Pi OS Lite By Default
+# --------------------
+
+
+set -euo pipefail
+echo "checking privilege levels..."
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run with sudo."
+   exit 1
+fi
+
+
+echo << EOF
+I am suitably priviliged!
+Reading config...
+Let the flashing begin (Clothes still on!)..."
+EOF
+
+SCRIPT_PATH="$( readlink -f "$BASH_SOURCE[0]" )"
+SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
+SCRIPT_DIR="$( cd "$SCRIPT_DIR" && pwd)"
+source $SCRIPT_DIR/flasher.conf 
+
+
+if [[ $# -ge 1 ]]; then
+    DEVICE="$1"
+else
+    echo "---DEVICE LIST---"
+    lsblk
+    read -rp "Enter the target device ('a' for abort):" DEVICE
+fi
+
+if [[ "$DEVICE" == "a" ]]; then
+    echo "Error: Aborted!"
+    exit 1
+elif [[ ! -b "/dev/$DEVICE" ]]; then
+    echo "Error: Device $DEVICE does not exist."
+    exit 1
+fi
+DEVICE="/dev/$DEVICE"
+
+
+# confirm drive erasure
+read -rp "$DEVICE will be overwriten. Are you sure you want to continue? (y/n):" CONFIRM
+if [[ "$CONFIRM" != "y" ]]; then
+    echo "Error: Aborted!"
+    exit 1
+fi
+
+
+# obtain image
+if [[ ! -f "$IMAGE_XZ" ]]; then
+    echo "Downloading image..."
+    curl -L "$IMAGE_URL" -o "$IMAGE_XZ"
+else
+    echo "Local image found, skipping download."
+fi
+
+
+# decompress and pipe to drivewrite
+echo "Decompressing and flashing image..."
+xzcat "$IMAGE_XZ" | sudo dd of="$DEVICE" bs=4M status=progress conv=fsync
+sync
+
+# setting up os config
+echo "Cofiguring setup..."
+BOOT_PART=$(lsblk -lnpo NAME,TYPE "$DEVICE" | grep part | head -n1 | awk '{print $1}')
+MOUNT_LOC="/mnt"
+
+mount "$BOOT_PART" $MOUNT_LOC
+python3 pi_config.py $MOUNT_LOC
+umount $MOUNT_LOC
+
+echo "Syncing process..."
+sync
+
+echo "Drive setup complete!"
